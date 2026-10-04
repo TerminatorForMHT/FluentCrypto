@@ -389,4 +389,4 @@ class AppController:
         self.view.show_success("结果已复制到剪贴板")
 
     def show(self) -> None:
-        self.view.show()
+        self.view.showMaximized()

@@ -3,7 +3,7 @@
 from typing import Dict, Iterable, Tuple
 
 from PyQt5.QtCore import pyqtSignal
-from PyQt5.QtWidgets import QGridLayout, QHBoxLayout, QVBoxLayout
+from PyQt5.QtWidgets import QGridLayout, QHBoxLayout, QPushButton, QVBoxLayout
 from qfluentwidgets import (
     BodyLabel,
     CardWidget,
@@ -13,7 +13,6 @@ from qfluentwidgets import (
     StrongBodyLabel,
     SubtitleLabel,
     SwitchButton,
-    ToolButton,
 )
 
 from app.views.common import create_page_layout
@@ -43,7 +42,7 @@ class SettingsPage(ScrollArea):
 
     def __init__(self, parent=None) -> None:
         super().__init__(parent)
-        self._color_buttons: Dict[str, ToolButton] = {}
+        self._color_buttons: Dict[str, QPushButton] = {}
         self._create_controls()
         self._build_ui()
         self._connect_signals()
@@ -87,7 +86,7 @@ class SettingsPage(ScrollArea):
         row = QHBoxLayout()
         row.setSpacing(10)
         for color in PRESET_COLORS:
-            button = ToolButton(self)
+            button = QPushButton(self)
             button.setFixedSize(30, 30)
             button.setStyleSheet(self._color_style(color, selected=False))
             button.clicked.connect(
@@ -102,8 +101,8 @@ class SettingsPage(ScrollArea):
     def _color_style(color: str, selected: bool) -> str:
         border = "2px solid #FFFFFF" if selected else "2px solid rgba(128, 128, 128, 0.4)"
         return (
-            f"ToolButton {{ background: {color}; border-radius: 15px; border: {border}; }}"
-            f"ToolButton:hover {{ border: 2px solid #FFFFFF; }}"
+            f"QPushButton {{ background: {color}; border-radius: 15px; border: {border}; }}"
+            f"QPushButton:hover {{ border: 2px solid #FFFFFF; }}"
         )
 
     def _create_behavior_card(self) -> CardWidget:
