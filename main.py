@@ -1,4 +1,4 @@
-"""Base64 Tool 应用入口。"""
+"""FluentCrypto 密码学编码校验工具入口。"""
 
 import os
 import sys
@@ -10,7 +10,7 @@ from PyQt5.QtCore import QLocale, Qt
 from PyQt5.QtWidgets import QApplication
 from qfluentwidgets import FluentTranslator, Theme, setTheme, setThemeColor
 
-from controller import AppController
+from app.controller import AppController
 
 
 def main() -> int:
